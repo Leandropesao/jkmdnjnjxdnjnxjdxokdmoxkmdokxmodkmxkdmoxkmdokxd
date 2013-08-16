@@ -1,5 +1,5 @@
 function delay() {
-        setTimeout("load();", 6000);
+        setTimeout("load();", 5000);
 }
 
 function load() {
@@ -56,12 +56,12 @@ function onCookiesLoaded() {
 
 var words = {
 "Points" : "Beats!",
-"Now Playing" : "Now Spinning!",
-"Time Remaining" : "Time Remaining!",
+"Now Playing" : "Tocando Agora",
+"Time Remaining" : "Time Sobrando",
 "Volume" : "Ajustar Volume!",
 "Current DJ" : "Disk Jockey",
 "Crowd Response" : "Crowd Reaction!",
-"Fans":"MEUS FÃS!"};
+"Fans":"MEUS FAS!"};
 
 String.prototype.prepareRegex = function() {
 return this.replace(/([\[\]\^\&\$\.\(\)\?\/\\\+\{\}\|])/g, "\\$1");
@@ -114,7 +114,7 @@ var MAX_USERS_WAITLIST = 50;
 
 var rulesMsg = "1- Tempo máximo para musicas: 6 minutos e 30 segundos. 2- Não escrever em /me e /em. 3- Respeitar os moderadores da sala. 4- Sem Flood no chat . 5- Não fique pedindo cargo."; 
 var rulesMsg2 = "Temas permitidos: Electro , Dubstep , Techno , Trap , EDM .";
-var rulesMsg3 = "";
+var rulesMsg3 = [""];
 var linksMsg = [""];
 var skipMsg = ["Por favor, não nos mande pular a música, nós decidimos se pulamos ou não!!"];
 var fansMsg = ["Troco fãs mais não se esqueça do @ menção  :)."];
@@ -205,27 +205,27 @@ function displayUI() {
     	var colorVideo = hideVideo ? '#3FFF00' : '#ED1C24';
 	$('#side-right .sidebar-content').append(
 			'<a title="Settings" style="color:#FFFFF">Configurações:</a>'
-		+	'<a id="plug-btn-woot" title="Toggle AutoWoot" style="color:' + colorWoot + '">AutoWoot</a>'
-		+ 	'<a id="plug-btn-queue" title="Toggle AutoQueue" style="color:' + colorQueue + '">Auto Join</a>'
-		+ 	'<a id="plug-btn-stream" title="Toggle Video Stream" style="color:' + colorStream + '">Video Streaming</a>'
-		+ 	'<a id="plug-btn-hidevideo" title="Toggle Video" style="color:' + colorVideo + '">Hide Video</a>'
+		+	'<a id="plug-btn-woot" title="AutoWoot" style="color:' + colorWoot + '">AutoWoot</a>'
+		+ 	'<a id="plug-btn-queue" title="AutoQueue" style="color:' + colorQueue + '">Auto Join</a>'
+		+ 	'<a id="plug-btn-stream" title="Video Stream" style="color:' + colorStream + '">Video Streaming</a>'
+		+ 	'<a id="plug-btn-hidevideo" title="Video" style="color:' + colorVideo + '">Hide Video</a>'
 		+	'<a title="Messages" style="color:#FFFFF">Mensagens:</a>'
-		+	'<a id="plug-btn-rules" title="Sends rules" style="color:#FF8C00">Regras</a>'
-		+	'<a id="plug-btn-face" title="Sends fb and forums links" style="color:#FF8C00">Social Links</a>'
-		+	'<a id="plug-btn-en" title="Sends English only message" style="color:#FF8C00">English Only</a>'
-		+	'<a id="plug-btn-fans" title="Sends fan message" style="color:#FF8C00">No Fans</a>'
-		+	'<a id="plug-btn-noskip" title="Send no skip message" style="color:#FF8C00">No Skip</a>'
-		+	'<a id="plug-btn-waffles" title="Sends waffle message" style="color:#FF8C00">Grupo EDT</a>'
+		+	'<a id="plug-btn-rules" title="Regras" style="color:#FF8C00">Regras</a>'
+		+	'<a id="plug-btn-face" title="FB" style="color:#FF8C00">Social Links</a>'
+		+	'<a id="plug-btn-en" title="" style="color:#FF8C00">English Only</a>'
+		+	'<a id="plug-btn-fans" title="" style="color:#FF8C00">No Fans</a>'
+		+	'<a id="plug-btn-noskip" title="" style="color:#FF8C00">No Skip</a>'
+		+	'<a id="plug-btn-waffles" title="" style="color:#FF8C00">Grupo EDT</a>'
 		+	'<a title="Changes your status" style="color:#FFFFF">Status:</a>'
-		+	'<a id="plug-btn-sleeping" title="Sends sleep message and sets status to sleeping" style="color:#FF8FEE">Adormecido</a>'
-		+	'<a id="plug-btn-working" title="Sends work message and sets status to working" style="color:#FF8FEE">Ocupado</a>'
-		+	'<a id="plug-btn-afk" title="Sends afk message and sets status to afk" style="color:#FF8FEE">Ausente</a>'
-		+	'<a id="plug-btn-back" title="Sends available message and sets status to available" style="color:#FF8FEE">Disponivel</a>'
+		+	'<a id="plug-btn-sleeping" title="" style="color:#FF8FEE">Adormecido</a>'
+		+	'<a id="plug-btn-working" title="" style="color:#FF8FEE">Ocupado</a>'
+		+	'<a id="plug-btn-afk" title="" style="color:#FF8FEE">Ausente</a>'
+		+	'<a id="plug-btn-back" title="" style="color:#FF8FEE">Disponivel</a>'
 		+	'<a title="Moderation" style="color:#FFFFF">Moderação:</a>'
-		+	'<a id="plug-btn-skip" title="Skips current DJ" style="color:#E90E82">Pular</a>'
-		+	'<a id="plug-btn-lock" title="Locks booth" style="color:#E90E82">Travar</a>'
-		+	'<a id="plug-btn-unlock" title="Unlocks booth" style="color:#E90E82">Destravar</a>'
-		+	'<a id="plug-btn-lockskip" title="Locks booth, skips DJ, then unlocks booth" style="color:#E90E82">Travar e Pular</a>'
+		+	'<a id="plug-btn-skip" title="" style="color:#E90E82">Pular</a>'
+		+	'<a id="plug-btn-lock" title="" style="color:#E90E82">Travar</a>'
+		+	'<a id="plug-btn-unlock" title="" style="color:#E90E82">Destravar</a>'
+		+	'<a id="plug-btn-lockskip" title="" style="color:#E90E82">Travar e Pular</a>'
     );
 }
 
